@@ -613,6 +613,10 @@ class Application(DefaultResource):
     def account(self) -> 'Account':
         return self.parent
 
+    @property
+    def keys(self) -> ApplicationKeys:
+        return ApplicationKeys(parent=self, instance_klass=Application)
+
 
 class Account(DefaultResource):
     def __init__(self, entity_name='org_name', **kwargs):
